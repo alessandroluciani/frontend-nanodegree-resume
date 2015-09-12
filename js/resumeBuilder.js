@@ -70,23 +70,23 @@ var work = {
 		{
 			"employer" : "Easyweb srl",
 			"title" : "CEO & Co-Founder",
-			"location" : "Rome",
+			"location" : "Rome - Italy",
 			"dates" : "2014 - Present",
-			"description" : "bla bla bla bla bla bla bla bla bla bla bla bla"
+			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		},
 		{
 			"employer" : "IctEasy srl",
 			"title" : "CEO & Co-Founder",
-			"location" : "Rome",
+			"location" : "Rome - Italy",
 			"dates" : "2010 - Present",
-			"description" : "bla bla bla bla bla bla bla bla bla bla bla bla"
+			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		},
 		{
 			"employer" : "InfoRoma srl",
 			"title" : "Freelance",
-			"location" : "Rome",
+			"location" : "Rome - Italy",
 			"dates" : "Dic 1999 - May 2010",
-			"description" : "bla bla bla bla bla bla bla bla bla bla bla bla"
+			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		}
 	]
 };
@@ -184,7 +184,15 @@ for (job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 	var formattedWorkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
 	var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 	$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
+	$(".work-entry:last").append(formattedWorkDates);
+	$(".work-entry:last").append(formattedWorkDescription);
+	$(".work-entry:last").append(formattedWorkLocation);
+	
+
 }
 
 
