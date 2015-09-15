@@ -19,7 +19,7 @@ var education = {
 	"schools" : [
 		{
 			"name" : "Udacity University",
-			"location" : "San Francisco",
+			"location" : "San Francisco, USA",
 			"degree" : "Nanodegree",
 			"majors" : ["Html","Css","Javascript"],
 			"dates" : "2015",
@@ -27,7 +27,7 @@ var education = {
 		},
 		{
 			"name" : "University of Rome",
-			"location" : "Rome",
+			"location" : "Rome, Italy",
 			"degree" : "Mechanical Engineering Degree",
 			"majors" : ["Mathematical Models","Metallurgy"],
 			"dates" : 2000,
@@ -35,7 +35,7 @@ var education = {
 		},
 		{
 			"name" : "M.Malpighi High School",
-			"location" : "Rome",
+			"location" : "Rome, Italy",
 			"degree" : "Scientific high school",
 			"majors" : ["Math","Physics"],
 			"dates" : 1990,
@@ -70,21 +70,21 @@ var work = {
 		{
 			"employer" : "Easyweb srl",
 			"title" : "CEO & Co-Founder",
-			"location" : "Rome - Italy",
+			"location" : "Rome, Italy",
 			"dates" : "2014 - Present",
 			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		},
 		{
 			"employer" : "IctEasy srl",
 			"title" : "CEO & Co-Founder",
-			"location" : "Rome - Italy",
+			"location" : "Rome, Italy",
 			"dates" : "2010 - Present",
 			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		},
 		{
 			"employer" : "InfoRoma srl",
 			"title" : "Freelance",
-			"location" : "Rome - Italy",
+			"location" : "Rome, Italy",
 			"dates" : "Dic 1999 - May 2010",
 			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		}
@@ -127,9 +127,6 @@ var projects  = {
 			"images" : [
 				{
 					"url" : "images/fry.jpg"
-				},
-				{
-					"url" : "images/fry.jpg"
 				}
 			]
 		}
@@ -163,36 +160,86 @@ $("#header").append(formattedWelcomeMessage);
 
 
 if (bio.skills.length > 0) {
-
 	$("#header").append(HTMLskillsStart);
-
 	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
 	$("#skills").append(formattedSkills);
-
 	formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
 	$("#skills").append(formattedSkills);
-
 	formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
 	$("#skills").append(formattedSkills);
-
 	formattedSkills = HTMLskills.replace("%data%", bio.skills[3]);
 	$("#skills").append(formattedSkills);
 	
 } 
 
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
-	var formattedWorkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-	var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-	var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-	var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-	$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
-	$(".work-entry:last").append(formattedWorkDates);
-	$(".work-entry:last").append(formattedWorkDescription);
-	$(".work-entry:last").append(formattedWorkLocation);
-	
+
+function displayWork() {
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedWorkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+		var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+		var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+		$(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
+		$(".work-entry:last").append(formattedWorkDates);
+		$(".work-entry:last").append(formattedWorkDescription);
+		//$(".work-entry:last").append(formattedWorkLocation);
+	}
+}
+
+displayWork();
+
+
+//Projects Section with Encapsulation
+
+projects.display = function(){
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		var formattedPrjTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		var formattedPrjDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		var formattedPrjDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedPrjTitle);
+		$(".project-entry:last").append(formattedPrjDates);
+		$(".project-entry:last").append(formattedPrjDescription);
+		//for images
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images){
+				var formattedPrjImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image].url);
+				$(".project-entry:last").append(formattedPrjImage);
+			}
+		}
+	}
+}
+
+projects.display();
+
+
+
+//Education Section with Encapsulation
+
+education.display = function(){
+
+	for (school in education.schools){
+
+		$("#education").append(HTMLschoolStart);
+		var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		$(".education-entry:last").append(formattedSchoolName+' '+formattedSchoolDegree);
+		var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		$(".education-entry:last").append(formattedSchoolDates);
+		var formattedSchoolMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+		$(".education-entry:last").append(formattedSchoolMajors);
+		var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedSchoolLocation);
+
+	}
+
 
 }
 
+education.display();
 
+
+////
+$("#mapDiv").append(googleMap);
