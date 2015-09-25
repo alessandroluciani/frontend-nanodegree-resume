@@ -8,7 +8,7 @@ var bio = {
 		"email" : "info@alexthebest.it",
 		"github" : "alessandroluciani",
 		"twitter" : "@alexbest",
-		"location" : "Rome"
+		"location" : "Rome, Italy"
 	},
 	"skills" : ["HTML5","CSS3","JAVASCRIPT","BOOTSTRAP.JS"],
 	"bioPic" : "images/me.jpg"
@@ -20,14 +20,14 @@ var work = {
 		{
 			"employer" : "Easyweb srl",
 			"title" : "CEO & Co-Founder",
-			"location" : "Rome, Italy",
+			"location" : "Madrid, Spain",
 			"dates" : "2014 - Present",
 			"description" : "Advanced Web Software analysis, design & development, platform independent, open source and modular. Professionality and experience to realize application solutions tailored to our customers. Web-based solutions for Industrial needs, accessing to any type of RDBMS (MySQL, SQLServer, Oracle, etc.), customized and integrated with the most of existing applications, for “anytime-anywhere” fruition. Development of applications for iOS and Android systems, technologies supporting almost all the smartphones and tablets on the market. Especially as extensions of web applications."
 		},
 		{
 			"employer" : "IctEasy srl",
 			"title" : "CEO & Co-Founder",
-			"location" : "Rome, Italy",
+			"location" : "London, UK",
 			"dates" : "2010 - Present",
 			"description" : "Was born in 2010, responding to increasing demand of system integration and process optimization. Novachem multidisciplinary background, ranging from chemical engineering to automation engineering and web and desktop development, allows to directly relate with many final client departments and to effectively achieve fixed targets."
 		}
